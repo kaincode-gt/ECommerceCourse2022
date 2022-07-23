@@ -7,7 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerceCourse2022", "ECom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceCourse2022_client", "EcommerceCourse2022_client\EcommerceCourse2022_client.csproj", "{1BF86954-1216-4723-8C74-8782FC665E68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceModels", "ECommerceModels\ECommerceModels.csproj", "{2D7BDAE8-82E7-445A-BC84-C11E8472AC92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce_Business", "ECommerce_Business\ECommerce_Business.csproj", "{C9A75A06-79E0-45C5-A784-42A41FAD6E77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce_Common", "ECommerce_Common\ECommerce_Common.csproj", "{474FB39B-5AA8-4A88-B050-B12988956767}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce_DataAccess", "ECommerce_DataAccess\ECommerce_DataAccess.csproj", "{3D6A1D59-7AFB-4971-A6E0-C8A26C2FCD84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce_Models", "ECommerce_Models\ECommerce_Models.csproj", "{46DF0129-694D-4AB3-9208-87BECA5AC02C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +29,22 @@ Global
 		{1BF86954-1216-4723-8C74-8782FC665E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BF86954-1216-4723-8C74-8782FC665E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BF86954-1216-4723-8C74-8782FC665E68}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D7BDAE8-82E7-445A-BC84-C11E8472AC92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D7BDAE8-82E7-445A-BC84-C11E8472AC92}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D7BDAE8-82E7-445A-BC84-C11E8472AC92}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D7BDAE8-82E7-445A-BC84-C11E8472AC92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9A75A06-79E0-45C5-A784-42A41FAD6E77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9A75A06-79E0-45C5-A784-42A41FAD6E77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A75A06-79E0-45C5-A784-42A41FAD6E77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9A75A06-79E0-45C5-A784-42A41FAD6E77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{474FB39B-5AA8-4A88-B050-B12988956767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{474FB39B-5AA8-4A88-B050-B12988956767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{474FB39B-5AA8-4A88-B050-B12988956767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{474FB39B-5AA8-4A88-B050-B12988956767}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D6A1D59-7AFB-4971-A6E0-C8A26C2FCD84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D6A1D59-7AFB-4971-A6E0-C8A26C2FCD84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D6A1D59-7AFB-4971-A6E0-C8A26C2FCD84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D6A1D59-7AFB-4971-A6E0-C8A26C2FCD84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46DF0129-694D-4AB3-9208-87BECA5AC02C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46DF0129-694D-4AB3-9208-87BECA5AC02C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46DF0129-694D-4AB3-9208-87BECA5AC02C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46DF0129-694D-4AB3-9208-87BECA5AC02C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

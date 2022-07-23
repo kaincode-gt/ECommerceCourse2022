@@ -1,0 +1,107 @@
+﻿@page "/product"
+@inject IProductRepository _repository;
+@inject IJSRuntime JS;
+
+
+<DeleteConfirmation IsParentComponentProcessing="IsLoading" ConfirmationChanged="ConfirmDelete_Click"></DeleteConfirmation>
+<div class="row mt-4">
+    <div class="col-6">
+        <h4 class="card-title text-primary">Product List</h4>
+    </div>
+    <div class="col-4 offset-2">
+        <a href="product/create" class="btn btn-primary form-control">
+            Add new Product
+        </a>
+    </div>
+    <div class="col-12">
+        @if (Products.Any())
+        {
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var p in Products)
+                    {
+                        <tr>
+                            <td>@p.Name</td>
+                            <th>
+                                <input type="checkbox" disabled checked=@p.ShopFavorites />
+                            </th>
+                             <th>
+                                <input type="checkbox" disabled checked=@p.CustomerFavorites />
+                            </th>
+                            <th>
+                                @p.Category.Name
+                            </th>
+                            <td>
+                                  <NavLink href="@($"product/edit/{p.Id}")" class="btn-primary btn">Edit</NavLink>
+                            <button class="btn btn-danger" @onclick="()=>HandleDelete(p.Id)">Delete</button>
+                              </td>
+                          
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            if (IsLoading)
+            {
+                <div class="text-center">
+                    <img src="images/loading_icon.gif">
+                </div>
+            }
+            else
+            {
+                <p>No products found.</p>
+            }
+        }
+    </div>
+</div>
+
+@code {
+    private IEnumerable<ProductDTO> Products { get; set; } = new List<ProductDTO>();
+    public bool IsLoading { get; set; }
+    private int DeleteProductId { get; set; } = 0;
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LoadCategories();
+        }
+    }
+
+    private async Task LoadCategories()
+    {
+        IsLoading = true;
+        StateHasChanged();
+
+        Products = await _repository.GetAll();
+
+        IsLoading = false;
+        StateHasChanged();
+    }
+    private void HandleDelete(int id)
+    {
+        DeleteProductId = id;
+        JS.InvokeVoidAsync("ShowDeleteComfirmationModal");
+    }
+
+    private async Task ConfirmDelete_Click(bool isConfirmed)
+    {
+        IsLoading = true;
+        if (isConfirmed && DeleteProductId!=0)
+        {
+            await _repository.Delete(DeleteProductId);
+            await LoadCategories();
+            await JS.InvokeVoidAsync("HideDeleteComfirmationModal");
+        }
+         IsLoading = false;
+    }
+}
