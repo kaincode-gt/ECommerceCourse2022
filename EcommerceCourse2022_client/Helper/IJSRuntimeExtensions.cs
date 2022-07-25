@@ -1,6 +1,6 @@
 ﻿using Microsoft.JSInterop;
 
-namespace ECommerceCourse2022_client.Helper;
+namespace EcommerceCourse2022_client.Helper;
 
 public static class IJSRuntimeExtensions
 {

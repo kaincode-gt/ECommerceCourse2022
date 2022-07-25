@@ -45,7 +45,7 @@ namespace ECommerce_Business.Repository
 
         public async Task<ProductDTO> Get(int id)
         {
-            var product = await _db.Products.Include(x=>x.Category).FirstOrDefaultAsync(x => x.Id == id);
+            var product = await _db.Products.Include(x=>x.Category).Include(x=>x.ProductPrices).FirstOrDefaultAsync(x => x.Id == id);
             if (product != null)
             {
                 return _mapper.Map<ProductDTO>(product);
