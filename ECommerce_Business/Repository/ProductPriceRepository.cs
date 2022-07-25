@@ -57,7 +57,7 @@ namespace ECommerce_Business.Repository
         {
             if (id!=null && id>0)
             {
-                _mapper.Map<IEnumerable<ProductPrice>, IEnumerable<ProductPriceDTO>>(_db.ProductPrices.Where(x=>x.ProductId==id));
+                return _mapper.Map<IEnumerable<ProductPrice>, IEnumerable<ProductPriceDTO>>(_db.ProductPrices.Where(x=>x.ProductId==id));
             }
             return _mapper.Map<IEnumerable<ProductPrice>, IEnumerable<ProductPriceDTO>>(_db.ProductPrices);
         }

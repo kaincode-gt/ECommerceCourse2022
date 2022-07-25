@@ -24,5 +24,7 @@ namespace ECommerce_Models
         public int CategoryId { get; set; }
 
         public CategoryDTO Category { get; set; }
+
+        public ICollection<ProductPriceDTO> ProductPrices { get; set; }
     }
 }
