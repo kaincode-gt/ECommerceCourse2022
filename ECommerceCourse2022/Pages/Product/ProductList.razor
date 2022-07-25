@@ -1,5 +1,6 @@
 ﻿@page "/product"
 @inject IProductRepository _repository;
+@inject IFileUpload _fileUpload;
 @inject IJSRuntime JS;
 
 
@@ -31,17 +32,17 @@
                             <th>
                                 <input type="checkbox" disabled checked=@p.ShopFavorites />
                             </th>
-                             <th>
+                            <th>
                                 <input type="checkbox" disabled checked=@p.CustomerFavorites />
                             </th>
                             <th>
                                 @p.Category.Name
                             </th>
                             <td>
-                                  <NavLink href="@($"product/edit/{p.Id}")" class="btn-primary btn">Edit</NavLink>
-                            <button class="btn btn-danger" @onclick="()=>HandleDelete(p.Id)">Delete</button>
-                              </td>
-                          
+                                <NavLink href="@($"product/edit/{p.Id}")" class="btn-primary btn">Edit</NavLink>
+                                <button class="btn btn-danger" @onclick="()=>HandleDelete(p.Id)">Delete</button>
+                            </td>
+
                         </tr>
                     }
                 </tbody>
@@ -73,11 +74,11 @@
     {
         if (firstRender)
         {
-            await LoadCategories();
+            await LoadProducts();
         }
     }
 
-    private async Task LoadCategories()
+    private async Task LoadProducts()
     {
         IsLoading = true;
         StateHasChanged();
@@ -96,12 +97,19 @@
     private async Task ConfirmDelete_Click(bool isConfirmed)
     {
         IsLoading = true;
-        if (isConfirmed && DeleteProductId!=0)
+        if (isConfirmed && DeleteProductId != 0)
         {
+            var productDTO = await _repository.Get(DeleteProductId);
+            if (!productDTO.ImageUrl.Contains("default.jpg"))
+            {
+                _fileUpload.DeleteFile(productDTO.ImageUrl);
+            }
+
             await _repository.Delete(DeleteProductId);
-            await LoadCategories();
+            await JS.ToastrSuccess("Product deleted successfully");
+            await LoadProducts();
             await JS.InvokeVoidAsync("HideDeleteComfirmationModal");
         }
-         IsLoading = false;
+        IsLoading = false;
     }
 }
