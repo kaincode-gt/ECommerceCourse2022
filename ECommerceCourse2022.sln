@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce_DataAccess", "ECo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce_Models", "ECommerce_Models\ECommerce_Models.csproj", "{46DF0129-694D-4AB3-9208-87BECA5AC02C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceCourse_API", "ECommerceCourse_API\ECommerceCourse_API.csproj", "{64AC0B63-E92B-4B49-B266-96E0CF2CF941}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerceCourse_API", "ECommerceCourse_API\ECommerceCourse_API.csproj", "{64AC0B63-E92B-4B49-B266-96E0CF2CF941}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

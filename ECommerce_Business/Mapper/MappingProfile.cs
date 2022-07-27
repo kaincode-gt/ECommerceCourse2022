@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ECommerce_DataAccess.Data;
+using ECommerce_DataAccess.ViewModel;
 using ECommerce_Models;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace ECommerce_Business.Mapper
             CreateMap<Category, CategoryDTO>().ReverseMap();
             CreateMap<Product, ProductDTO>().ReverseMap();
             CreateMap<ProductPrice, ProductPriceDTO>().ReverseMap();
+            CreateMap<Order, OrderDTO>().ReverseMap();
         }
     }
 }

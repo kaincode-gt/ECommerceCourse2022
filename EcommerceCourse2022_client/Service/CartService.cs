@@ -6,6 +6,7 @@ namespace EcommerceCourse2022_client.Service;
 public class CartService : ICartService
 {
     private readonly ILocalStorageService _localStorage;
+    public event Action OnChange;
 
     public CartService (ILocalStorageService localStorage)
     {
@@ -20,7 +21,7 @@ public class CartService : ICartService
         {
             if (cart[i].ProductId == cartToDelete.ProductId && cart[i].ProductPriceId == cartToDelete.ProductPriceId)
             {
-                if (cart[i].Count ==0 || cart[i].Count ==1)
+                if (cart[i].Count ==1 || cartToDelete.Count ==0)
                 {
                     cart.Remove(cart[i]);
                 }
@@ -31,6 +32,7 @@ public class CartService : ICartService
             }
         }
         await _localStorage.SetItemAsync(SD.ShoppingCart, cart);
+        OnChange.Invoke();
     }
 
     public async Task IncrementCart(ShoppingCart cartToAdd)
@@ -60,5 +62,6 @@ public class CartService : ICartService
             });
         }
         await _localStorage.SetItemAsync(SD.ShoppingCart, cart);
+        OnChange.Invoke();
     }
 }
